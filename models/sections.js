@@ -3,6 +3,11 @@ module.exports = (sequelize, DataTypes) => {
         location: DataTypes.STRING,
         description: DataTypes.STRING
     })
+    Sections.associate = models => {
+        Sections.hasMany(models.books, {
+            onDelete: 'cascade'
+        })
+    }
     return Sections
 }
 

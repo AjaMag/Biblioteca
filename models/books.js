@@ -7,5 +7,8 @@ module.exports = (sequelize, DataTypes) => {
         summary: DataTypes.STRING,
         inStock: DataTypes.SMALLINT
     })
+
+    Books.associate = models => {
+        Books.belongsTo(models.sections, { foreignKey: {allowNull: false} })
     return Books
 }
