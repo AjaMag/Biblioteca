@@ -12,3 +12,4 @@ require('./routes')(app)
 require('./models').sequelize.sync().then(() => {
     app.listen(2000, () => console.log('http://localhost:2000'))
 })
+
