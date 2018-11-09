@@ -7,10 +7,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyparser.urlencoded({extended: true}))
 app.use(bodyparser.json())
 
-require('./routes')(app)
+// require('./routes')(app)
 
-require('./models').sequelize.sync().then(() => {
-    app.listen(2000, () => console.log('http://localhost:2000'))
-})
+// require('./models').sequelize.sync().then(() => {
+//     app.listen(2000, () => console.log('http://localhost:2000'))
+// })
 
-//app.listen(2000, () => console.log('http://localhost:2000'))
+app.listen(2000, () => console.log('http://localhost:2000'))

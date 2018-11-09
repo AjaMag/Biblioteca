@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
         year: DataTypes.SMALLINT,
         genre: DataTypes.STRING,
         summary: DataTypes.STRING,
-        inStock: DataTypes.SMALLINT
+        STockQty: DataTypes.SMALLINT
     })
 
     Books.associate = models => {
