@@ -11,4 +11,5 @@ module.exports = (sequelize, DataTypes) => {
     Books.associate = models => {
         Books.belongsTo(models.sections, { foreignKey: {allowNull: false} })
     return Books
+    }
 }
