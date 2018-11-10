@@ -11,6 +11,18 @@ module.exports = (sequelize, DataTypes) => {
   // Provide point for associations 
   CartItems.associate = (models) => {
     
+    CartItems.belongsTo(models.carts, {
+      foreignKey: {
+        allowNull: false
+      }
+    })
+
+    CartItems.belongsTo(models.books, {
+      foreignKey: {
+        allowNull: false
+      }
+    })
+
   }
 
   return CartItems

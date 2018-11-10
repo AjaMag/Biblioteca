@@ -13,7 +13,7 @@ require('./routes')(app)
 
 // sync DB and listen
 require('./models').sequelize.sync({force: true}).then(() => {
-  const PORT = process.env.PORT || 2000
+  const PORT = process.env.PORT || 3000
   app.listen(PORT, () => {
     console.log(`Listening at http://localhost:${PORT}`)
   })

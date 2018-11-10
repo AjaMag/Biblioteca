@@ -1,8 +1,8 @@
 // API-Routes 
 module.exports = (app) => {  
-  require('./sectionRoutes')(app)
-  require('./bookRoutes')(app)
-  require('./cartRoutes')(app)
+  require('./api/apiSections')(app)
+  require('./api/apiBooks')(app)
+  require('./api/apiCarts')(app)
 }
 
 

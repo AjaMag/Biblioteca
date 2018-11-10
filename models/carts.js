@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
     
     // Cart has a one-to-many relationship with cart-items
     Cart.hasMany(models.cartitems, {
-      as: 'CartItems',
       onDelete: 'cascade'
     })
 

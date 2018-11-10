@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
     // Provide point for associations 
     Sections.associate = models => {
         Sections.hasMany(models.books, {
-            as: 'Books',
             onDelete: 'cascade'
         })
     }
