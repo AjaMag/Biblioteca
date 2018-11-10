@@ -1,22 +1,29 @@
-// books Routes 
+// Cart-Routes
+
 const db = require('../../models')
 
-module.exports = app => {
+module.exports = (app) => {
 
   // find all
-  app.get("/books", (req, res) => {
+  app.get("/cartitems", (req, res) => {
 
-    db.books.findAll({
-        include: [db.sections]
+    db.cartitems.findAll({
+        include: [{
+          db: carts,
+          db: books
+        }]
       })
       .then(r => res.json(r))
       .catch(e => console.error(e))
   })
 
   // Find-one
-  app.get('/books/:id', (req, res) => {
-    db.books.findOne({
-        include: [db.sections],
+  app.get('/cartitems/:id', (req, res) => {
+    db.cartitems.findOne({
+        include: [{
+          db: carts,
+          db: books
+        }],
         where: {
           id: req.params.id
         }
@@ -26,15 +33,15 @@ module.exports = app => {
   })
 
   // Create
-  app.post('/books', (req, res) => {
-    db.books.create(req.body)
+  app.post('/cartitems', (req, res) => {
+    db.cartitems.create(req.body)
       .then(() => res.sendStatus(200))
       .catch(e => console.error(e))
   })
 
   // Update
-  app.put('/books/:id', (req, res) => {
-    db.books.update(req.body, {
+  app.put('/cartitems/:id', (req, res) => {
+    db.cartitems.update(req.body, {
         where: {
           id: req.params.id
         }
@@ -44,8 +51,8 @@ module.exports = app => {
   })
 
   // delete-one
-  app.delete('/books/:id', (req, res) => {
-    db.books.destroy({
+  app.delete('/cartitems/:id', (req, res) => {
+    db.cartitems.destroy({
         where: {
           id: req.params.id
         }
@@ -55,14 +62,13 @@ module.exports = app => {
   })
 
   // delete-all
-  app.delete('/books', (req, res) => {
-    db.books.destroy({
+  app.delete('/cartitems', (req, res) => {
+    db.cartitems.destroy({
         where: {},
         truncate: true
       })
       .then(() => res.sendStatus(200))
       .catch(e => console.error(e))
   })
-
 
 } // module.exports

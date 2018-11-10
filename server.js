@@ -12,7 +12,7 @@ app.use(bodyparser.json())
 require('./routes')(app)
 
 // sync DB and listen
-require('./models').sequelize.sync({force: true}).then(() => {
+require('./models').sequelize.sync().then(() => {
   const PORT = process.env.PORT || 3000
   app.listen(PORT, () => {
     console.log(`Listening at http://localhost:${PORT}`)

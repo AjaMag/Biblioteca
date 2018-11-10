@@ -4,7 +4,7 @@ const path = require('path')
 // HTML-Routes
 module.exports = (app) => {
 
-  app.get('/books', (req, res) => {
+  app.get('/booksPage', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/sections/index.html'))
   })
 
