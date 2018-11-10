@@ -1,0 +1,54 @@
+<<<<<<< HEAD
+=======
+
+/* Applicatin CSS */
+body {
+  /* Remove margins and padding around content */
+  margin: 0;
+  padding: 0;
+  /* Fix background during scrolling */
+  background-attachment: fixed;
+  /* Use scalable background image (cross borwser) */
+  background-image: url("./images/librarybackground.jpg");
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #003A6C;
+}
+
+.imgRnd10 {
+  /* Rounded image corners */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.imageShadow {
+  /* Add drop shadow */
+  -webkit-box-shadow: 2px 2px 3px 2px gray;
+  -moz-box-shadow: 2px 2px 3px 2px gray;
+  box-shadow: 2px 2px 3px 2px gray;
+}
+
+.divider {
+  background-color: rgb(77, 118, 153);
+  height: 5px;
+  width: 95%;
+  margin-left: 10px;
+}
+
+.transparentContainer {
+  opacity: 0.9;
+}
+
+.container { 
+  background-color: lightgray;
+    /* Set min height to fill larger screens */
+    min-height: 800px;
+ 
+}
+
+>>>>>>> 29e5d94bf3248ab37da3f7caa5de76fe9c710ee8
