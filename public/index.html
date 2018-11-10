@@ -1,113 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<!-- we might need to use a class="no-js" in the <html> tag to prevent a 
-"flash of unstyled content" for many Foundation components. -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<!-- Materialize, Foundation, and local stylesheet for CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0/dist/css/foundation.min.css" integrity="sha256-VEEaOnBKVRoYPn4AID/tY/XKVxKEqXstoo/xZ6nemak= sha384-D46t32f421/hB30qwnim2pIcisNN5GU9+6m2Mfnd3dKpTSFidZLa08/1StEiCFId sha512-WkgzH8VKemDfwrp18r+wgbx+oHXOkfd2kJs7ocAXdGDgonXDXh88E90IRtRZRXtO0IHprxYHYlY14h+wyTsUDA==" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
-    <link rel="stylesheet" href="style.css">
 
-    <title>Biblioteca</title>
+<head>
+  <!-- we might need to use a class="no-js" in the <html> tag to prevent a 
+"flash of unstyled content" for many Foundation components. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Materialize, Foundation, and local stylesheet for CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0/dist/css/foundation.min.css"
+    integrity="sha256-VEEaOnBKVRoYPn4AID/tY/XKVxKEqXstoo/xZ6nemak= sha384-D46t32f421/hB30qwnim2pIcisNN5GU9+6m2Mfnd3dKpTSFidZLa08/1StEiCFId sha512-WkgzH8VKemDfwrp18r+wgbx+oHXOkfd2kJs7ocAXdGDgonXDXh88E90IRtRZRXtO0IHprxYHYlY14h+wyTsUDA=="
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>Biblioteca</title>
 </head>
 
 <body>
 
-    <div class="container">
+  <header >
 
-        <div class="row">
-            <div class="col s12">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlSbdXjGtqxWrnxknHNKa6R2kdddtEiJ9113gjsF14oHqwY5h6gw" width:"120" alt="Logo">
-                <nav>
-                    <a href="index.html">Home</a>
-                    <a href="admin/index.html">Admin</a>
-                </nav>
-               
-            </div>
-            
-                
+    <div class="topcontainer">
+
+      <nav>
+        <div class="nav-wrapper #ffebee" >
+          <div class="logoholder">
+            <a href="#" class="brand-logo">
+              <img src="./images/librarylogo.jpg" class="mainLogo imageShadow imgRnd10" alt="Logo">
+            </a>
+          </div>
+          <ul id="nav-mobile" class="right hide-on-med-and-down" >
+            <li ><a href="index.html" >Home</a></li>
+            <li><a href="admin/index.html">Admin</a></li>
+          </ul>
         </div>
+      </nav>
 
-        <div class="container"> 
-            <div class="row">
-                <div class="col s6">
-                <nav class="white">
-                    <div class="nav-wrapper">
-                    
-                        <ul class="hide-on-med-and-down right">               
-                        <li>    
-                          
-                                <div class="col s12 " >
-                                <div class="row" id="topbarsearch">
-                                    <div class="input-field col s6 s12 red-text">
-                                    <input type="text" placeholder="search genres" id="autocomplete-input" class="autocomplete red-text" >
-                                    </div>
-                                    </div>
-                                </div>
-                                
-                        </li>                     
-                            
-                        </ul>
-                    </div>
-                </nav> 
-
-            
-            </div>
-        </div>
-
-        <div class="container">
-                <a class="waves-effect waves-light btn">Search</a>
-                <a class="waves-effect waves-light btn">Clear Search</a>
-                <a class="waves-effect waves-light btn">Total</a>
-                <a class="waves-effect waves-light btn">View Cart</a>
-
-                <div class="row">
-                        <div class="col s10 m6">
-                          <div class="card blue-grey darken-1">
-                            <div class="card-content white-text">
-                              <span class="card-title">Card Title</span>
-                              <p>I am a very simple card. I am good at containing small bits of information.
-                              I am convenient because I require little markup to use effectively.</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col s2 m6">
-                          <a href="">Quantity:</a>
-                            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-                    </div>
-
-
-                    <div class="col s12 m2">
-                            <p class="z-depth-1">z-depth-1</p>
-                          </div>
-                          <div class="col s12 m2">
-                            <p class="z-depth-2">z-depth-2</p>
-                          </div>
-
-
-        </div>
-        
-
-
-       
-    
-    
-    
     </div>
 
-           
+  </header>
 
-      <!-- Compressed JavaScript for Foundation -->
-<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0/dist/js/foundation.min.js" integrity="sha256-GZq6aeugpWo25iH//1eKmeK6FHCf+6KXTfoUpkCqPCA= sha384-vjxUQtbGw5FJMigaaFpXYyxoHHLb7LbvRywnMZOiPJeh5j9sl2rnmQ3iucuegRm8 sha512-h7tIMIX/opZXfWkcTDbkO+nT0LePyAAwDacfYhWtgGUidV+Kkh3eesW52fPSxKEsw3rgywKhQvghNLT4eDuUyw==" crossorigin="anonymous"></script>
-   
- 
+  <div class="container">
+
+    <div class="container">
+      <div class="row">
+        <div class="col s6">
+          <nav class="white">
+            <div class="nav-wrapper">
+
+              <ul class="hide-on-med-and-down right">
+                <li>
+
+                  <div class="col s12 ">
+                    <div class="row" id="topbarsearch">
+                      <div class="input-field col s6 s12 red-text">
+                        <input type="text" placeholder="search genres" id="autocomplete-input" class="autocomplete red-text">
+                      </div>
+                    </div>
+                  </div>
+
+                </li>
+
+              </ul>
+            </div>
+          </nav>
+
+
+        </div>
+      </div>
+
+      <div class="container">
+        <a class="waves-effect waves-light btn">Search</a>
+        <a class="waves-effect waves-light btn">Clear Search</a>
+        <a class="waves-effect waves-light btn">Total</a>
+        <a class="waves-effect waves-light btn">View Cart</a>
+
+        <div class="row">
+          <div class="col s10 m6">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information.
+                  I am convenient because I require little markup to use effectively.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s2 m6">
+          <a href="">Quantity:</a>
+          <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+
+
+        <div class="col s12 m2">
+          <p class="z-depth-1">z-depth-1</p>
+        </div>
+        <div class="col s12 m2">
+          <p class="z-depth-2">z-depth-2</p>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+    <!-- Compressed JavaScript for Foundation -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0/dist/js/foundation.min.js" integrity="sha256-GZq6aeugpWo25iH//1eKmeK6FHCf+6KXTfoUpkCqPCA= sha384-vjxUQtbGw5FJMigaaFpXYyxoHHLb7LbvRywnMZOiPJeh5j9sl2rnmQ3iucuegRm8 sha512-h7tIMIX/opZXfWkcTDbkO+nT0LePyAAwDacfYhWtgGUidV+Kkh3eesW52fPSxKEsw3rgywKhQvghNLT4eDuUyw=="
+      crossorigin="anonymous"></script>
+
+
 </body>
+
 </html>
