@@ -7,10 +7,10 @@ module.exports = (sequelize, DataTypes) => {
         author: DataTypes.STRING,
         year: DataTypes.SMALLINT,
         genre: DataTypes.STRING,
-        summary: DataTypes.STRING,
+        ISBN : DataTypes.STRING,
+        summary: DataTypes.STRING, 
         stockQty: DataTypes.SMALLINT,
-        totalUse: DataTypes.INTEGER,
-        ISBN : DataTypes.STRING
+        totalUse: DataTypes.INTEGER       
     }, {
         // Model tableName will be the same as the model name instead of being pluralized
         freezeTableName: true
