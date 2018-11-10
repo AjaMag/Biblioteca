@@ -19,6 +19,14 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       }
     })
+    
+    CartItems.belongsTo(models.books, {
+      as: 'Books',
+      foreignKey: {
+        allowNull: false
+      }
+    })
+
   }
 
   return CartItems
