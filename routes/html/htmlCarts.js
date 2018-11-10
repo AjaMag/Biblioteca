@@ -5,7 +5,7 @@ const path = require('path')
 module.exports = (app) => {
 
   app.get('/cartview', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/carts/index.html'))
+    res.sendFile(path.join(__dirname, '../../public/carts/index.html'))
   })
 
 } // module.exports  
