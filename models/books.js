@@ -1,4 +1,3 @@
-
 // Books Model
 
 module.exports = (sequelize, DataTypes) => {
@@ -18,12 +17,20 @@ module.exports = (sequelize, DataTypes) => {
 
     // Provide point for associations 
     Books.associate = models => {
+
         Books.belongsTo(models.sections, {
-            as : 'Sections',
+            as: 'Sections',
             foreignKey: {
                 allowNull: false
             }
         })
-        return Books
+
+        Books.hasMany(models.cartitems, {
+            as: 'CartItems',
+            onDelete: 'cascade'
+        })
     }
-}
+
+    return Books
+
+} // module.exports
