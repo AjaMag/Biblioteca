@@ -1,3 +1,8 @@
+
+// models/index.js will read all model files in this folder and will associated 
+// the sequelizer connection element inside teh files. This module will be exported 
+// and will contain the SQLZ and sequelizer objects
+
 'use strict'
 
 const fs = require('fs')
@@ -19,6 +24,8 @@ fs
     db[model.name] = model
   })
 
+// Add the function "associate" into the model to 
+// establish any releationship between tables
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db)
