@@ -18,13 +18,6 @@ module.exports = (sequelize, DataTypes) => {
     // Provide point for associations 
     Books.associate = models => {
 
-        Books.belongsTo(models.sections, {
-            as: 'Sections',
-            foreignKey: {
-                allowNull: false
-            }
-        })
-
         Books.hasMany(models.cartitems, {
             as: 'CartItems',
             onDelete: 'cascade'

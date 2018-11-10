@@ -2,8 +2,6 @@
 module.exports = (sequelize, DataTypes) => {
 
   let CartItems = sequelize.define('cartitems', {
-    sectionId: DataTypes.INTEGER,
-    bookId: DataTypes.INTEGER,
     qty: DataTypes.INTEGER
   }, {
     // Model tableName will be the same as the model name instead of being pluralized
@@ -12,21 +10,7 @@ module.exports = (sequelize, DataTypes) => {
 
   // Provide point for associations 
   CartItems.associate = (models) => {
-
-    CartItems.belongsTo(models.carts, {
-      as: 'Carts',
-      foreignKey: {
-        allowNull: false
-      }
-    })
     
-    CartItems.belongsTo(models.books, {
-      as: 'Books',
-      foreignKey: {
-        allowNull: false
-      }
-    })
-
   }
 
   return CartItems

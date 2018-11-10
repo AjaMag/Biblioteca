@@ -1,4 +1,4 @@
--- remove databases if exists
+cartitems-- remove databases if exists
 DROP DATABASE IF EXISTS biblioteca_db;
 -- create teh table
 CREATE DATABASE biblioteca_db;
