@@ -42,6 +42,35 @@ body {
   opacity: 0.9;
 }
 
+.topcontainer { 
+  background-color : rgb(206, 156, 156);
+  margin: 20px 0px 10px 0px;
+  height: 200px;
+  font-size: 50px;
+
+}
+
+nav {
+  height: 200px;
+  line-height: 30px;
+}
+
+.logoholder {
+  margin: 5px 0px 5px 10px; 
+}
+
+.mainLogo {
+  width : 200px;
+  margin: 10px 0px 0px 20px;
+}
+
+
+
+/* #nav-mobile {
+  margin-top: 10px;
+
+} */
+
 .container { 
   background-color: lightgray;
     /* Set min height to fill larger screens */

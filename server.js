@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const bodyparser = require('body-parser')
 const path = require('path')
+const SQLZ = require("sequelize")
+const sequelize = new SQLZ('mysql://root:rootroot@localhost:3306/biblioteca_db');
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyparser.urlencoded({
