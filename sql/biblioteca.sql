@@ -4,10 +4,10 @@ DROP DATABASE IF EXISTS biblioteca_db;
 CREATE DATABASE biblioteca_db;
 
 -- drop tables
-use bamazon_db;
+use biblioteca_db;
 drop table cartitems;
 drop table carts;
 
-use bamazon_db;
+use biblioteca_db;
 drop table books;
 drop table sections;
