@@ -13,6 +13,17 @@ module.exports = app => {
       .catch(e => console.error(e))
   })
 
+  app.get("/chartview/:title", (req, res) => {
+
+    db.books.findAll({
+        where: {
+          title: req.params.title,
+        }
+      })
+      .then(r => res.json(r))
+      .catch(e => console.error(e))
+  })
+
   // Find-one
   app.get('/books/:id', (req, res) => {
     db.books.findOne({

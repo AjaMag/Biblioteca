@@ -4,4 +4,5 @@ module.exports = (app) => {
   require('./html/htmlBooks')(app)
   require('./html/htmlCarts')(app)
   require('./html/htmlSections')(app)
+  require('./html/htmlChart')(app)
 }
