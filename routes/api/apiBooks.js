@@ -13,6 +13,15 @@ module.exports = app => {
       .catch(e => console.error(e))
   })
 
+  app.get("/chartview/:id", (req, res) => {
+
+    db.books.findAll({
+      
+      })
+      .then(r => res.json(r))
+      .catch(e => console.error(e))
+  })
+
   // Find-one
   app.get('/books/:id', (req, res) => {
     db.books.findOne({

@@ -1,6 +1,6 @@
 -- remove databases if exists
 DROP DATABASE IF EXISTS biblioteca_db;
--- create teh table
+-- create the table
 CREATE DATABASE biblioteca_db;
 
 -- drop tables
