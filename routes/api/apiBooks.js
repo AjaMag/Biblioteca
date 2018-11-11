@@ -3,18 +3,21 @@ const db = require('../../models')
 
 module.exports = app => {
 
-  // find all
-  app.get("/librarycartsbooks", (req, res) => {
+  // charts ....................................
+  app.get("/chartview/:id", (req, res) => {
     db.books.findAll({
-        include: [db.sections]
+
       })
       .then(r => res.json(r))
       .catch(e => console.error(e))
   })
 
-  app.get("/chartview/:id", (req, res) => {
+
+  // books ......................................
+  // find all
+  app.get("/librarybooks", (req, res) => {
     db.books.findAll({
-      
+        include: [db.sections]
       })
       .then(r => res.json(r))
       .catch(e => console.error(e))
@@ -26,6 +29,19 @@ module.exports = app => {
         include: [db.sections],
         where: {
           id: req.params.id
+        }
+      })
+      .then(r => res.json(r))
+      .catch(e => console.error(e))
+  })
+
+  // find all prod for a department 
+  app.get('/librarybooks-section/:id', (req, res) => {
+    console.log(req.params.id)
+    db.books.findAll({
+        include: [db.sections],
+        where: {
+          sectionId: req.params.id
         }
       })
       .then(r => res.json(r))
