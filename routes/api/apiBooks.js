@@ -5,7 +5,6 @@ module.exports = app => {
 
   // find all
   app.get("/librarycartsbooks", (req, res) => {
-
     db.books.findAll({
         include: [db.sections]
       })
@@ -14,7 +13,6 @@ module.exports = app => {
   })
 
   app.get("/chartview/:id", (req, res) => {
-
     db.books.findAll({
       
       })
@@ -23,7 +21,7 @@ module.exports = app => {
   })
 
   // Find-one
-  app.get('/librarycartsbooks/:id', (req, res) => {
+  app.get('/librarybooks/:id', (req, res) => {
     db.books.findOne({
         include: [db.sections],
         where: {
@@ -35,14 +33,14 @@ module.exports = app => {
   })
 
   // Create
-  app.post('/librarycartsbooks', (req, res) => {
+  app.post('/librarybooks', (req, res) => {
     db.books.create(req.body)
       .then(() => res.sendStatus(200))
       .catch(e => console.error(e))
   })
 
   // Update
-  app.put('/librarycartsbooks/:id', (req, res) => {
+  app.put('/librarybooks/:id', (req, res) => {
     db.books.update(req.body, {
         where: {
           id: req.params.id
@@ -53,7 +51,7 @@ module.exports = app => {
   })
 
   // delete-one
-  app.delete('/librarycartsbooks/:id', (req, res) => {
+  app.delete('/librarybooks/:id', (req, res) => {
     db.books.destroy({
         where: {
           id: req.params.id
@@ -64,7 +62,7 @@ module.exports = app => {
   })
 
   // delete-all
-  app.delete('/librarycartsbooks', (req, res) => {
+  app.delete('/librarybooks', (req, res) => {
     db.books.destroy({
         where: {},
         truncate: true

@@ -1,14 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
   <title>Books Home</title>
+  <link rel="icon" href="../images/libraryicon.png">
+
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Applicaiton style -->
+  <link rel="stylesheet" href="../style.css">
+
 </head>
+
 <body>
 
-   <h1>Hello</h1>
-  
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">Logo</a>
+        <h3 class="d-inline align-baseline brandName">
+          Library Books Admin
+        </h3>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/libraryadmin">Administration</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="searchBar">
+    <div class="input-field col s12 ">
+      <select class="browser-default" id="sectionList" onclick="selectChange()">
+        <option value="0">Choose your option</option>
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+      </select>
+    </div>
+  </div>
+
+
+
+  <div class="container">
+    <ul id="bookList">
+      <!-- Library sections will go here -->
+    </ul>
+  </div>
+
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script src="../app.js"></script>
+
+  <script>
+    // Materialize initiatlizaiton
+    document.addEventListener('DOMContentLoaded', function () {
+      // var elems = document.querySelector('#sectionList');
+      var elems = document.querySelectorAll('select');
+      var options = document.querySelectorAll('option');
+      var instances = M.FormSelect.init(elems, options);
+    });
+
+    // Get selected value
+    const selectChange = () => {
+       var elem = document.querySelector('#sectionList');
+       var instance = M.FormSelect.getInstance(elem);
+       console.log(instance)
+       var value = instance.getSelectedValues();
+       console.log(elem.value)
+    }
+
+    // keep a collection of incoming departments
+    // let sectionArr = []
+
+    // const getLibarySections = () => {
+    //   fetch('/librarysections')
+    //     .then(r => r.json())
+    //     .then(r => {
+    //       document.querySelector('#sectionList').innerHTML = ''
+
+    //       // All sections
+    //       let listOption = document.createElement('option')
+    //       listOption.innerHTML = `<option data-value="all">All Sections</option>`
+    //       document.querySelector('#sectionList').appendChild(listOption)
+
+    //       r.forEach(libSect => {
+    //         // add sections to array
+    //         sectionArr.push({
+    //           id: libSect.id,
+    //           description: libSect.description,
+    //           location: libSect.location
+    //         })
+    //         // add department name to selector
+    //         let listOption = document.createElement('option')
+    //         listOption.innerHTML = `<option data-value="${libSect.id}">${libSect.description}</option>`
+    //         document.querySelector('#sectionList').appendChild(listOption)
+    //       });
+    //     })
+    //     .catch(e => console.error(e))
+    // }
+
+
+
+
+    // getLibarySections()
+  </script>
+
 </body>
+
 </html>
