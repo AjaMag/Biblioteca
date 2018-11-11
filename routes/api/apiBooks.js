@@ -4,7 +4,7 @@ const db = require('../../models')
 module.exports = app => {
 
   // find all
-  app.get("/books", (req, res) => {
+  app.get("/librarycartsbooks", (req, res) => {
 
     db.books.findAll({
         include: [db.sections]
@@ -23,7 +23,7 @@ module.exports = app => {
   })
 
   // Find-one
-  app.get('/books/:id', (req, res) => {
+  app.get('/librarycartsbooks/:id', (req, res) => {
     db.books.findOne({
         include: [db.sections],
         where: {
@@ -35,14 +35,14 @@ module.exports = app => {
   })
 
   // Create
-  app.post('/books', (req, res) => {
+  app.post('/librarycartsbooks', (req, res) => {
     db.books.create(req.body)
       .then(() => res.sendStatus(200))
       .catch(e => console.error(e))
   })
 
   // Update
-  app.put('/books/:id', (req, res) => {
+  app.put('/librarycartsbooks/:id', (req, res) => {
     db.books.update(req.body, {
         where: {
           id: req.params.id
@@ -53,7 +53,7 @@ module.exports = app => {
   })
 
   // delete-one
-  app.delete('/books/:id', (req, res) => {
+  app.delete('/librarycartsbooks/:id', (req, res) => {
     db.books.destroy({
         where: {
           id: req.params.id
@@ -64,7 +64,7 @@ module.exports = app => {
   })
 
   // delete-all
-  app.delete('/books', (req, res) => {
+  app.delete('/librarycartsbooks', (req, res) => {
     db.books.destroy({
         where: {},
         truncate: true

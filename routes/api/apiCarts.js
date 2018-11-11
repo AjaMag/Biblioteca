@@ -5,7 +5,7 @@ const db = require('../../models')
 module.exports = (app) => {
 
       // find all
-  app.get("/carts", (req, res) => {
+  app.get("/librarycarts", (req, res) => {
 
     db.carts.findAll({})
       .then(r => res.json(r))
@@ -13,7 +13,7 @@ module.exports = (app) => {
   })
 
   // Find-one
-  app.get('/carts/:id', (req, res) => {
+  app.get('/librarycarts/:id', (req, res) => {
     db.carts.findOne({
         where: {
           id: req.params.id
@@ -24,14 +24,14 @@ module.exports = (app) => {
   })
 
   // Create
-  app.post('/carts', (req, res) => {
+  app.post('/librarycarts', (req, res) => {
     db.carts.create(req.body)
       .then(() => res.sendStatus(200))
       .catch(e => console.error(e))
   })
 
   // Update
-  app.put('/carts/:id', (req, res) => {
+  app.put('/librarycarts/:id', (req, res) => {
     db.carts.update(req.body, {
         where: {
           id: req.params.id
@@ -42,7 +42,7 @@ module.exports = (app) => {
   })
 
   // delete-one
-  app.delete('/carts/:id', (req, res) => {
+  app.delete('/librarycarts/:id', (req, res) => {
     db.carts.destroy({
         where: {
           id: req.params.id
@@ -53,7 +53,7 @@ module.exports = (app) => {
   })
 
   // delete-all
-  app.delete('/carts', (req, res) => {
+  app.delete('/librarycarts', (req, res) => {
     db.carts.destroy({
         where: {},
         truncate: true
