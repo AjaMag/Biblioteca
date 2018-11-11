@@ -52,6 +52,11 @@
 
   </div>
 
+  <div>
+      <a href="/booksadmin-add" class="waves-effect waves-light btn btn-large"><i class="material-icons">add_box</i>
+        Add Book to inventory</a>
+    </div>
+
   <div class="container">
     <ul id="bookList">
       <!-- Library sections will go here -->
@@ -67,6 +72,18 @@
   <script>
     // keep a collection of incoming departments
     let sectionArr = []
+    
+    document.addEventListener('click', e => {
+      if (e.target && e.target.id === 'updBnt') {
+        //  redirect to the link (how to pass a parameter on new location? )
+        window.location = `./booksadmin-edit?id=${e.target.value}`
+      }
+
+      if (e.target && e.target.id === 'dltBnt') {
+        //  redirect to the link
+        window.location = `./booksadmin-delete?id=${e.target.value}`
+      }
+    })
 
     const getLibarySections = () => {
       fetch('/librarysections')
