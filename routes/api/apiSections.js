@@ -4,15 +4,16 @@ const db = require('../../models')
 module.exports = app => {
 
   // find all
-  app.get("/sections", (req, res) => {
+  app.get("/librarysections", (req, res) => {
 
+    console.log("ping- sections")
     db.sections.findAll({})
       .then(r => res.json(r))
       .catch(e => console.error(e))
   })
 
   // Find-one
-  app.get('/sections/:id', (req, res) => {
+  app.get('/librarysections/:id', (req, res) => {
     db.sections.findOne({
         where: {
           id: req.params.id
@@ -23,14 +24,14 @@ module.exports = app => {
   })
 
   // Create
-  app.post('/sections', (req, res) => {
+  app.post('/librarysections', (req, res) => {
     db.sections.create(req.body)
       .then(() => res.sendStatus(200))
       .catch(e => console.error(e))
   })
 
   // Update
-  app.put('/sections/:id', (req, res) => {
+  app.put('/librarysections/:id', (req, res) => {
     db.sections.update(req.body, {
         where: {
           id: req.params.id
@@ -41,7 +42,7 @@ module.exports = app => {
   })
 
   // delete-one
-  app.delete('/sections/:id', (req, res) => {
+  app.delete('/librarysections/:id', (req, res) => {
     db.sections.destroy({
         where: {
           id: req.params.id
@@ -52,7 +53,7 @@ module.exports = app => {
   })
 
   // delete-all
-  app.delete('/sections', (req, res) => {
+  app.delete('/librarysections', (req, res) => {
     db.sections.destroy({
         where: {},
         truncate: true
