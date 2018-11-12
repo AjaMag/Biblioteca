@@ -12,7 +12,6 @@ module.exports = app => {
       .catch(e => console.error(e))
   })
 
-
   // books ......................................
   // find all
   app.get("/librarybooks", (req, res) => {
