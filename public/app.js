@@ -17,3 +17,24 @@ function storePendingCart(pendCart) {
 function removePendingCart() {
   sessionStorage.removeItem("bibliotecaCart")
 }
+
+function getSectionId(sectName, targetArr) {
+  let sectId = undefined
+  targetArr.forEach(section => {
+    if (sectName === section.description) {
+      sectId = section.id
+    }
+  });
+  return sectId
+}
+
+function getSectionName(sectId, targetArr) {
+  sectId = parseInt(sectId)
+  let sectionName = undefined
+  targetArr.forEach(section => {
+    if (sectId === parseInt(section.id)) {
+      sectionName = section.description
+    }
+  });
+  return sectionName
+}

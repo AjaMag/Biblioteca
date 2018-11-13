@@ -1,11 +1,11 @@
 // books Routes 
+
 const db = require('../../models')
 
 module.exports = app => {
 
   // find all
-  app.get("/librarycartsbooks", (req, res) => {
-
+  app.get("/librarybooks", (req, res) => {
     db.books.findAll({
         include: [db.sections]
       })
@@ -13,17 +13,8 @@ module.exports = app => {
       .catch(e => console.error(e))
   })
 
-  app.get("/chartview/:id", (req, res) => {
-
-    db.books.findAll({
-      
-      })
-      .then(r => res.json(r))
-      .catch(e => console.error(e))
-  })
-
   // Find-one
-  app.get('/librarycartsbooks/:id', (req, res) => {
+  app.get('/librarybooks/:id', (req, res) => {
     db.books.findOne({
         include: [db.sections],
         where: {
@@ -34,15 +25,28 @@ module.exports = app => {
       .catch(e => console.error(e))
   })
 
+  // find all prod for a department 
+  app.get('/librarybooks-section/:id', (req, res) => {
+    console.log(req.params.id)
+    db.books.findAll({
+        include: [db.sections],
+        where: {
+          sectionId: req.params.id
+        }
+      })
+      .then(r => res.json(r))
+      .catch(e => console.error(e))
+  })
+
   // Create
-  app.post('/librarycartsbooks', (req, res) => {
+  app.post('/librarybooks', (req, res) => {
     db.books.create(req.body)
       .then(() => res.sendStatus(200))
       .catch(e => console.error(e))
   })
 
   // Update
-  app.put('/librarycartsbooks/:id', (req, res) => {
+  app.put('/librarybooks/:id', (req, res) => {
     db.books.update(req.body, {
         where: {
           id: req.params.id
@@ -53,7 +57,7 @@ module.exports = app => {
   })
 
   // delete-one
-  app.delete('/librarycartsbooks/:id', (req, res) => {
+  app.delete('/librarybooks/:id', (req, res) => {
     db.books.destroy({
         where: {
           id: req.params.id
@@ -64,7 +68,7 @@ module.exports = app => {
   })
 
   // delete-all
-  app.delete('/librarycartsbooks', (req, res) => {
+  app.delete('/librarybooks', (req, res) => {
     db.books.destroy({
         where: {},
         truncate: true

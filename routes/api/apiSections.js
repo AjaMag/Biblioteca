@@ -1,12 +1,11 @@
 // Section Routes 
+
 const db = require('../../models')
 
 module.exports = app => {
 
   // find all
   app.get("/librarysections", (req, res) => {
-
-    console.log("ping- sections")
     db.sections.findAll({})
       .then(r => res.json(r))
       .catch(e => console.error(e))

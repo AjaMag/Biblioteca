@@ -5,7 +5,7 @@ const path = require('path')
 module.exports = (app) => {
 
   app.get('/chartview', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../public/sections/chart.html'))
+    res.sendFile(path.join(__dirname, '../../public/charts/chart.html'))
   })
 
 } // module.exports  

@@ -1,4 +1,4 @@
-// Cart-Routes
+// Cart Routes
 
 const db = require('../../models')
 

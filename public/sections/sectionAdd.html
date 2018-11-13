@@ -1,14 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
   <title>Section Add</title>
+  <link rel="icon" href="../images/libraryicon.png">
+
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Applicaiton style -->
+  <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
 
-   <h1>Hello</h1>
-  
+  <header>
+      <header>
+          <nav>
+              <div class="nav-wrapper">
+                <a href="/" class="brand-logo">Logo</a>
+                <h3 class="d-inline align-baseline brandName">
+                    Add Library section
+                  </h3>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sectionadmin">Sections Admin</a></li>
+                </ul>
+              </div>
+            </nav>
+        </header>
+  </header>
+
+  <div class="container">
+
+    <h2>New Library section</h2>
+    <form>
+      <div class="form-group">
+        <label for="sectDescription">Section <span class="inputErrors" id="secDescrErr"></span></label>
+        <input type="text" class="form-control" name="sectDescription" id="sectDescription" placeholder="Section description...">
+      </div>
+      <div class="form-group">
+        <label for="sectLoc">Location <span id="sectLocErr"></span></label>
+        <input type="text" class="form-control" name="sectLoc" id="sectLoc" placeholder="section location ...">
+      </div>
+      <button type="submit" class="btn btn-primary" onclick="addLibSection()">Add</button>
+      <button type="submit" class="btn btn-danger" onclick="cancelAction()">Cancel</button>
+    </form>
+
+  </div>
+
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="../app.js"></script>
+
+  <script>
+    // cancel the action
+    const cancelAction = () => {
+      // oveeride form-submit defualt behavior
+      event.preventDefault()
+      // redirect
+      window.location = './sectionadmin'
+    }
+
+    const addLibSection = () => {
+      event.preventDefault()
+      // clear previous errors 
+      document.querySelector('#secDescrErr').innerHTML = ''
+      document.querySelector('#sectLocErr').innerHTML = ''
+
+      // validation
+      let errFound = false
+      if (!document.getElementById("sectDescription").value) {
+        document.querySelector('#secDescrErr').innerHTML = ' - Provide a section description'
+        errFound = true
+      }
+      if (!document.getElementById("sectLoc").value) {
+        document.querySelector('#sectLocErr').innerHTML = ' - Provide a section location'
+        errFound = true
+      }
+
+      if (!errFound) {
+        // Get information from screen
+        let sectDescr = document.querySelector('#sectDescription').value
+        let sectLoc = document.querySelector('#sectLoc').value
+
+        // save data
+        fetch('/librarysections', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json ; charset=utf-8'
+            },
+            body: JSON.stringify({
+              location: sectLoc,
+              description: sectDescr
+            })
+          })
+          .then(r => {
+            // redirect
+            window.location = './sectionadmin'
+          })
+          .catch(e => console.error(e))
+
+      } // if (!errFound)
+    } // addLibSection ()
+  </script>
+
 </body>
+
 </html>
