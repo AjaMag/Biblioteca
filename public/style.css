@@ -7,7 +7,7 @@ body {
   /* Fix background during scrolling */
   background-attachment: fixed;
   /* Use scalable background image (cross borwser) */
-  background-image: url("./images/librarybackground.jpg");
+  background-image: url("./images/view.jpg");
   background-position: center center;
   background-attachment: fixed;
   -webkit-background-size: cover;
@@ -51,7 +51,7 @@ body {
 }
 
 nav {
-  height: 200px;
+  height: 135px;
   line-height: 30px;
 }
 
@@ -66,10 +66,11 @@ nav {
 
 
 
-/* #nav-mobile {
-  margin-top: 10px;
+ #nav-mobile {
+  margin-right: 200px;
+  margin-top: 100px;
 
-} */
+} 
 
 .container { 
   background-color: lightgray;
