@@ -27,7 +27,7 @@ module.exports = app => {
 
   // find all prod for a department 
   app.get('/librarybooks-section/:id', (req, res) => {
-    console.log(req.params.id)
+    //console.log(req.params.id)
     db.books.findAll({
         include: [db.sections],
         where: {

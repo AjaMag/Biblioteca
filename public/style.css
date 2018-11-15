@@ -14,7 +14,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  color: #003A6C;
+  color: rgb(206, 58, 21);
 }
 
 .imgRnd10 {
@@ -55,6 +55,12 @@ nav {
   line-height: 30px;
 }
 
+.nav-wrapper {
+  background-color: rgb(206, 58, 21);
+  color: lightgray;
+  padding-bottom: 2rem;
+}
+
 .logoholder {
   margin: 5px 0px 5px 10px; 
 }
@@ -64,16 +70,25 @@ nav {
   margin: 10px 0px 0px 20px;
 }
 
+/* for icon */
+.bigIcon {
+  font-size: 100px;
+}
 
+.header {
+  margin: 2rem 5rem 0 0;
+  padding: 1rem;
+  color: lightgray;
+}
 
- #nav-mobile {
+#nav-mobile {
   margin-right: 200px;
   margin-top: 100px;
-
 } 
 
 .container { 
-  background-color: lightgray;
+  background-color:  lightgray;
+  padding-top: 1rem;
     /* Set min height to fill larger screens */
     min-height: 800px;
  
