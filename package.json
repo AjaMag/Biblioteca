@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/AjaMag/Biblioteca#readme",
   "dependencies": {
+    "animate.css": "^3.7.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "foundation-sites": "^6.5.0",
