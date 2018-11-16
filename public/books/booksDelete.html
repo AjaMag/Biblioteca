@@ -18,11 +18,11 @@
 <body>
   <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo"><i class="material-icons bigIcon">account_balance</i></a>
+        <a href="#!" class="brand-logo"><img src="../images/librarylogo2.jpg" class="mainLogo imgRnd10 imageShadow"></a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="large material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
-          <li><a href="/booksAdmin"><i class="material-icons left">book</i>Books Admin</a></li>
+          <li><a href="/booksAdmin"><i class="material-icons left">book</i>Library Admin</a></li>
         </ul>
         <br>
         <h3 class="d-inline align-baseline header">
@@ -32,8 +32,8 @@
     </nav>
   
     <ul class="sidenav" id="mobile-demo">
-      <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
-      <li><a href="/booksadmin"><i class="material-icons left">book</i>Books Admin</a></li>
+        <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
+        <li><a href="/booksAdmin"><i class="material-icons left">book</i>Library Admin</a></li>
     </ul>
 
   <div class="container">
@@ -48,17 +48,20 @@
   </div>
 
   <!-- Compiled and minified JavaScript -->
+  <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  
-  <!-- jQuery for side NavBar -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="../app.js"></script>
+
+  <!-- JS for side NavBar -->
   <script>
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
+   document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var options = document.querySelector('li');
+    var instances = M.Sidenav.init(elems, options);
   });
   </script>
   
-  <script src="../app.js"></script>
-
   <script>
     // cancel the action
     const cancelAction = () => {
@@ -124,7 +127,6 @@
       return parseInt(vars.id)
     }
   </script>
-  
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
   </body>
 </html> 
