@@ -25,9 +25,6 @@ body {
   border-radius: 10px;
 }
 
-
-
-
 .imageShadow {
   /* Add drop shadow */
   -webkit-box-shadow: 2px 2px 3px 2px gray;
@@ -62,33 +59,32 @@ nav {
 .nav-wrapper {
   background-color: rgb(206, 58, 21);
   color: lightgray;
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .logoholder {
   margin: 5px 0px 5px 10px; 
 }
 
-<<<<<<< HEAD
-=======
 .btn {
   background-color: rgb(206, 58, 21);
   color: lightgray;
 }
->>>>>>> 388c2a3436f0c58602160c84de47803104f5480a
 
 .mainLogo {
-  width : 200px;
-  margin: 10px 0px 0px 20px;
+  width : 100px;
+  margin: 10px 0px 10px 20px;
 }
 
 /* for icon */
-.bigIcon {
+/* .bigIcon {
   font-size: 100px;
-}
+} */
 
+/* for header of nav bar */
 .header {
-  margin: 2rem 5rem 0 0;
+  margin: 3rem 2rem 0 0;
   padding: 1rem;
   color: lightgray;
 }
@@ -111,6 +107,4 @@ nav {
   border-radius: 25%;
     /* Set min height to fill larger screens */
   min-height: 800px;
- 
 }
-
