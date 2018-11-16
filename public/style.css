@@ -69,6 +69,13 @@ nav {
   margin: 5px 0px 5px 10px; 
 }
 
+<<<<<<< HEAD
+=======
+.btn {
+  background-color: rgb(206, 58, 21);
+  color: lightgray;
+}
+>>>>>>> 388c2a3436f0c58602160c84de47803104f5480a
 
 .mainLogo {
   width : 200px;
@@ -91,16 +98,17 @@ nav {
   margin-top: 100px;
 } 
 
-.tgtSec {
-  padding: 2rem 15rem 1rem 5rem;
-  margin: 3rem 15rem 1rem 3rem;
+/* for text, cards and buttons inside .container */
+.mainSec {
+  padding: 2rem 0rem 1rem 1rem;
+  margin: 1rem 0rem 1rem 1rem;
 }
 
 .container { 
   background-color:  lightgray;
-  padding: 1rem 1rem 1rem 1rem;
-  margin: 1rem 15rem 1rem 1rem;
-  border-radius: 70%;
+  padding: 1rem 0rem 1rem 1rem;
+  margin: 1rem 0rem 1rem 1rem;
+  border-radius: 25%;
     /* Set min height to fill larger screens */
   min-height: 800px;
  

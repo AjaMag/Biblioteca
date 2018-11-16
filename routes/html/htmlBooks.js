@@ -17,7 +17,7 @@ module.exports = (app) => {
     })
   
     app.get('/booksadmin-delete', (req, res) => {
-      res.sendFile(path.join(__dirname, '../../public/books/bookDelete.html'))
+      res.sendFile(path.join(__dirname, '../../public/books/booksDelete.html'))
     })
 
 } // module.exports  
