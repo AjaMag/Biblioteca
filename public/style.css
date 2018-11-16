@@ -17,12 +17,16 @@ body {
   color: rgb(206, 58, 21);
 }
 
+
 .imgRnd10 {
   /* Rounded image corners */
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
 }
+
+
+
 
 .imageShadow {
   /* Add drop shadow */
@@ -65,10 +69,13 @@ nav {
   margin: 5px 0px 5px 10px; 
 }
 
+<<<<<<< HEAD
+=======
 .btn {
   background-color: rgb(206, 58, 21);
   color: lightgray;
 }
+>>>>>>> 388c2a3436f0c58602160c84de47803104f5480a
 
 .mainLogo {
   width : 200px;
