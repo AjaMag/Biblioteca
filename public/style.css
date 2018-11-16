@@ -67,10 +67,13 @@ nav {
   margin: 5px 0px 5px 10px; 
 }
 
+<<<<<<< HEAD
+=======
 .btn {
   background-color: rgb(206, 58, 21);
   color: lightgray;
 }
+>>>>>>> c90ada63d1d86abb81164de4f541494f61c052f8
 
 .mainLogo {
   width : 100px;
@@ -104,7 +107,17 @@ nav {
   background-color:  lightgray;
   padding: 1rem 0rem 1rem 1rem;
   margin: 1rem 0rem 1rem 1rem;
-  border-radius: 25%;
+  border-radius: 18%;
     /* Set min height to fill larger screens */
   min-height: 800px;
 }
+<<<<<<< HEAD
+
+#sectionList{
+  margin-left: 20px;
+
+
+}
+
+=======
+>>>>>>> c90ada63d1d86abb81164de4f541494f61c052f8

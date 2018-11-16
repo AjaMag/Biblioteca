@@ -22,25 +22,33 @@
   <!-- Dropdown Structure -->
   <div class="container">
 
+    
+
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">
-
-          <img src="../public/images/librarylogo2.jpg" width="40%">
-
-        </a>
-        <ul id="nav-mobile" class="right ">
-          <li><a href="/">Home</a></li>
-          <li><a href="/libraryadmin">Admin</a></li>
-
+        <a href="#" class="brand-logo"><i class="material-icons bigIcon">account_balance</i></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="large material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+        
+          <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
+          <li><a href="/booksAdmin"><i class="material-icons left">book</i>Books Admin</a></li>
         </ul>
+        <br>
+      
       </div>
     </nav>
+
+
+
 
     <div class="searchBar">
       <div class="row">
         <div class="input-field col s16 ">
           <select class="browser-default" id="sectionList" onclick="selectChange()">
+<<<<<<< HEAD
+           
+=======
+>>>>>>> c90ada63d1d86abb81164de4f541494f61c052f8
           </select>
         </div>
         <div class='col s6'>
@@ -61,53 +69,7 @@
         </div>
       </div>
 
-      <!-- <div class="row">
-
-        <div class="col s6">
-          <div class="container">
-
-            <nav class="white">
-              <div class="nav-wrapper">
-                <ul class="hide-on-med-and-down right">
-                  <li>
-                    <div class="center row">
-                      <div class="col s12 ">
-                        <div class="row" id="topbarsearch">
-                          <div class="input-field col s6 s12 white-text">
-                            <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete white-text">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-
-          </div>
-
-
-        </div>
-        <div class="col s6">
-          <div class="row">
-            <div class="col s12 m6">
-              <div class="card">
-                <div class="card-image">
-                  <img src="images/sample-1.jpg">
-                  <span class="card-title">Card Title</span>
-                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                </div>
-                <div class="card-content">
-                  <p>I am a very simple card. I am good at containing small bits of information. I am convenient
-                    because I require little markup to use effectively.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-      </div> -->
+     
 
 
     <!-- </div> -->
@@ -127,7 +89,8 @@
     <script>
       // keep a collection of incoming departments
       let sectionArr = []
-      
+  
+
       document.addEventListener('click', e => {
       if (e.target && e.target.id === 'addCart') {
         //  redirect to the link (how to pass a parameter on new location? )
@@ -146,7 +109,7 @@
 
             // All sections
             let listOption = document.createElement('option')
-            listOption.innerHTML = `<option value="all">All Sections</option>`
+            listOption.innerHTML = `<option value="all" >All Sections</option>`
             document.querySelector('#sectionList').appendChild(listOption)
 
             r.forEach(libSect => {
@@ -188,7 +151,16 @@
                    </div>
                  </div>
                  <div class="col s3">
+
+                 
+                  <form>
+                    <div class="form-group">
+                      <label for="item${book.id}" class='d-inline'>Qty:</label>
+                      <input type="number" class="form-control d-inline" name="item${book.id}" id="item${book.id}" min="1" value="1">
+                    </div>
+                  </form>
                     <button id="addCart" class="btn btn-primary" value=${book.id}>Add to Cart</button>
+                 
                  </div>
             </div>
             `
