@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="animate.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="awesomplete.css" />
   <title>Chart</title>
 </head>
 
@@ -19,12 +20,16 @@
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
-          <input id="title" type="text" class="validate">
+          <input id="title" class="awesomplete" list="titleList" type="text">
+          <datalist id="titleList">
+          </datalist>
           <label for="title">Title</label>
         </div>
         <div class="input-field col s6">
-          <i class="material-icons prefix">phone</i>
-          <input id="author" type="text" class="validate">
+          <i class="material-icons prefix">account_box</i>
+          <input id="author" type="text" class="awesomplete" list="authorList">
+          <datalist id="authorList">
+          </datalist>
           <label for="author">Author</label>
         </div>
       </div>
@@ -33,12 +38,13 @@
     </form>
   </div>
 
-
+  <script src="awesomplete.js" async></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script>
 
     var booksJSON = [];
+
 
 
 
@@ -101,8 +107,9 @@
             var author = document.querySelector("#author").value.trim();
             var title = document.querySelector("#title").value.trim();
             booksJSON = [];
+
             for(i = 0; i < books.length; i ++) {
-              if (books[i].title === title || books[i].author === author) {
+              if (books[i].title === title || books[i].author === author || books[i].title.toLowerCase() === title.toLowerCase() || books[i].author.toLowerCase() === author.toLowerCase() || books[i].title.toLowerCase().replace(/\s/g, '') === title.replace(/\s/g, '') || books[i].author.toLowerCase().replace(/\s/g, '') === author.toLowerCase().replace(/\s/g, '')) {
                 booksJSON.push(books[i]);
               }
             }
@@ -110,6 +117,24 @@
           });
       }
       
+      function seedAutoComplete() {
+            fetch("/librarybooks")
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (books) {
+            for (i = 0; i < books.length; i ++) {
+              var addAuthor = document.createElement("option");
+              addAuthor.innerHTML = books[i].author;
+              document.querySelector("#authorList").appendChild(addAuthor);
+
+              var addTitle = document.createElement("option");
+              addTitle.innerHTML = books[i].title;
+              document.querySelector("#titleList").appendChild(addTitle);
+            }
+          });
+      }
+      seedAutoComplete();
       </script>
 </body>
 
