@@ -91,15 +91,16 @@ nav {
   margin-top: 100px;
 } 
 
-.tgtSec {
-  padding: 2rem 15rem 1rem 5rem;
-  margin: 1rem 15rem 1rem 3rem;
+/* for text, cards and buttons inside .container */
+.mainSec {
+  padding: 2rem 0rem 1rem 1rem;
+  margin: 1rem 0rem 1rem 1rem;
 }
 
 .container { 
   background-color:  lightgray;
-  padding: 1rem 1rem 1rem 1rem;
-  margin: 1rem 15rem 1rem 1rem;
+  padding: 1rem 0rem 1rem 1rem;
+  margin: 1rem 0rem 1rem 1rem;
   border-radius: 25%;
     /* Set min height to fill larger screens */
   min-height: 800px;
