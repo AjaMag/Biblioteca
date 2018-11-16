@@ -66,7 +66,8 @@ nav {
 }
 
 .btn {
-  
+  background-color: rgb(206, 58, 21);
+  color: lightgray;
 }
 
 .mainLogo {
