@@ -1,6 +1,7 @@
 // books Routes 
 
 const db = require('../../models')
+const Op = db.Sequelize.Op;
 
 module.exports = app => {
 
@@ -77,5 +78,69 @@ module.exports = app => {
       .catch(e => console.error(e))
   })
 
+  // Book search functionality -----------------------
+
+  app.get("/searchlibrarybooks", (req, res) => {
+
+    console.log("title:", req.query.title)
+    console.log("author:", req.query.author)
+    console.log("year:", req.query.year)
+    console.log("genre:", req.query.genre)
+    console.log("isbn:", req.query.isbn)
+
+    getWhereClause(req.query)
+      .then(r => {
+        console.log(r)
+        db.books.findAll({
+            include: [db.sections],
+            where: r
+          })
+          .then(r => res.json(r))
+          .catch(e => console.error(e))
+      })
+  })
+
+
+  async function getWhereClause(query) {
+    return new Promise(function (resolve, reject) {
+      resolve(getWhereObj(query))
+    })
+  }
+
+  async function getWhereObj(query) {
+    let whereObj = {}
+
+    if (query.title) {
+      whereObj.title = {
+        [Op.like]: '%' + query.title + '%'
+      }
+    }
+
+    if (query.author) {
+      whereObj.author = {
+        [Op.like]: '%' + query.author + '%'
+      }
+    }
+
+    if (query.year) {
+      whereObj.year = {
+        [Op.like]: '%' + query.year + '%'
+      }
+    }
+
+    if (query.genre) {
+      whereObj.genre = {
+        [Op.like]: '%' + query.genre + '%'
+      }
+    }
+
+    if (query.isbn) {
+      whereObj.ISBN = {
+        [Op.like]: '%' + query.isbn + '%'
+      }
+    }
+
+    return whereObj
+  }
 
 } // module.exports
