@@ -52,8 +52,9 @@
     <!-- <div class="container"> -->
     <div class="row">
       <div class="col s12">
-        <a class="nav-link waves-effect waves-light btn"><i class="material-icons left">search</i>Search</a>
-        <a class="nav-link waves-effect waves-light btn"><i class="material-icons left">layers_clear</i>Clear Search</a>
+        <a class="waves-effect waves-light btn" onclick="booksSearch()"><i class="material-icons left">search</i>Search</a>
+        <a class="waves-effect waves-light btn" onclick="clearSearch()"><i class="material-icons left">layers_clear</i>Clear
+          Search</a>
         <a href="/cartview" class="nav-link waves-effect waves-light btn"><i class="material-icons left">shopping_cart</i>View
           Cart</a>
         <div>
@@ -199,31 +200,6 @@
         }
       }
 
-      // dynamic buttons elements handlers 
-      document.addEventListener('click', e => {
-        // override from-submit default behavior
-        event.preventDefault()
-        // Process selection 
-        if (e.target && e.target.id === 'cartBnt') {
-          // get book data:
-          // 1. get associated book with btn selection
-          let book = JSON.parse(e.target.getAttribute("data-value"))
-          // 2. retreive quantity
-          let qty = document.querySelector(`#item${e.target.value}`).value
-          // 3. add to cart (if cart does not exist, create cart and add itme)
-          if (currentCart === null) {
-            // create cart a+ selected item
-            createCart(book, qty)
-          } else {
-            // create selected item only 
-            createCartItem(currentCart, book, qty)
-          }
-        } else if (e.target.getAttribute("class").includes('nav-link')) {
-          // it is a nav link, redirect to the link
-          window.location = e.target.getAttribute("href")
-        }
-      })
-
       // Create a cart with first item
       const createCart = (book, qty) => {
         // create cart
@@ -280,6 +256,44 @@
             .catch(e => console.error(e))
         }
       }
+
+      const clearSearch = () => {
+        // override from-submit default behavior
+        event.preventDefault()
+        document.querySelector('#sectionList').value = 'All Sections'
+        getBooks()
+      }
+
+      const booksSearch = () => {
+        // override from-submit default behavior
+        event.preventDefault()
+        console.log("ping")
+      }
+
+      // dynamic buttons elements handlers 
+      document.addEventListener('click', e => {
+        // override from-submit default behavior
+        event.preventDefault()
+        // Process selection 
+        if (e.target && e.target.id === 'cartBnt') {
+          // get book data:
+          // 1. get associated book with btn selection
+          let book = JSON.parse(e.target.getAttribute("data-value"))
+          // 2. retreive quantity
+          let qty = document.querySelector(`#item${e.target.value}`).value
+          // 3. add to cart (if cart does not exist, create cart and add itme)
+          if (currentCart === null) {
+            // create cart a+ selected item
+            createCart(book, qty)
+          } else {
+            // create selected item only 
+            createCartItem(currentCart, book, qty)
+          }
+        } else if (e.target.getAttribute("class").includes('nav-link')) {
+          // it is a nav link, redirect to the link
+          window.location = e.target.getAttribute("href")
+        }
+      })
 
       getLibarySections()
       getBooks()
