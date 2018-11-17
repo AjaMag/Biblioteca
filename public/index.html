@@ -22,8 +22,6 @@
   <!-- Dropdown Structure -->
   <div class="container">
 
-
-
     <nav>
       <div class="nav-wrapper">
         <a href="#" class="brand-logo"><i class="material-icons bigIcon">account_balance</i></a>
@@ -51,19 +49,19 @@
 
     </div>
 
-
     <!-- <div class="container"> -->
     <div class="row">
       <div class="col s12">
-        <a class="waves-effect waves-light btn"><i class="material-icons left">search</i>Search</a>
-        <a class="waves-effect waves-light btn"><i class="material-icons left">layers_clear</i>Clear Search</a>
-        <a class="waves-effect waves-light btn"><i class="material-icons left">list</i>Total Items </a>
-        <a class="waves-effect waves-light btn"><i class="material-icons left">shopping_cart</i>View Cart</a>
+        <a class="nav-link waves-effect waves-light btn"><i class="material-icons left">search</i>Search</a>
+        <a class="nav-link waves-effect waves-light btn"><i class="material-icons left">layers_clear</i>Clear Search</a>
+        <a href="/cartview" class="nav-link waves-effect waves-light btn"><i class="material-icons left">shopping_cart</i>View
+          Cart</a>
+        <div>
+          <h4 id="cartItems"></h4>
+        </div>
+
       </div>
     </div>
-
-
-
 
     <!-- </div> -->
 
@@ -80,19 +78,8 @@
     <script src="../app.js"></script>
 
     <script>
-      // keep a collection of incoming departments
+      // keep a collection of library sections
       let sectionArr = []
-
-
-      document.addEventListener('click', e => {
-        if (e.target && e.target.id === 'addCart') {
-          //  redirect to the link (how to pass a parameter on new location? )
-          // window.location = `./booksadmin-edit?id=${e.target.value}`
-
-          // TODO: somethng goes here
-        }
-
-      })
 
       const getLibarySections = () => {
         fetch('/librarysections')
@@ -130,7 +117,7 @@
             r.forEach(book => {
               let listItem = document.createElement('li')
               listItem.innerHTML =
-                ` <div class="row">
+                `<div class="row">
                  <div class="col s9">                             
                     <div class="card blue-grey darken-1">
                      <div class="card-content white-text">
@@ -152,8 +139,8 @@
                     <button id="cartBnt" class="btn btn-primary" value=${book.id} data-value='${JSON.stringify(book)}'>Add to Cart</button>
                   </form>       
                  </div>
-            </div>
-            `
+               </div>
+               `
               document.querySelector('#bookList').appendChild(listItem)
             });
           })
@@ -191,8 +178,8 @@
                              <button id="cartBnt" class="btn btn-primary" value=${book.id} data-value='${JSON.stringify(book)}'>Add to Cart</button>
                             </form>       
                           </div>
-                     </div>
-                     `
+                  </div>
+                `
               document.querySelector('#bookList').appendChild(listItem)
             });
           })
@@ -231,11 +218,10 @@
             // create selected item only 
             createCartItem(currentCart, book, qty)
           }
-        } else if (e.target.getAttribute("class") === 'nav-link') {
+        } else if (e.target.getAttribute("class").includes('nav-link')) {
           // it is a nav link, redirect to the link
           window.location = e.target.getAttribute("href")
         }
-
       })
 
       // Create a cart with first item
@@ -252,6 +238,7 @@
           })
           .then(r => r.json())
           .then(r => {
+            // console.log(r)
             // Save create Cart in a variable (r is created cart)
             currentCart = r
             // save current cart in the session
@@ -278,13 +265,25 @@
             })
           })
           .then(r => {
-            // nothing
+            countCartItems()
           })
           .catch(e => console.error(e))
       }
 
+      const countCartItems = () => {
+        if (currentCart !== null) {
+          fetch(`/librarycarts/${currentCart.id}`)
+            .then(r => r.json())
+            .then(r => {
+              document.querySelector("#cartItems").innerHTML = `Items in Cart: ${r.cartitems.length}`
+            })
+            .catch(e => console.error(e))
+        }
+      }
+
       getLibarySections()
       getBooks()
+      countCartItems()
     </script>
 </body>
 

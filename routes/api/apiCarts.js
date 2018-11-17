@@ -15,6 +15,7 @@ module.exports = (app) => {
   // Find-one
   app.get('/librarycarts/:id', (req, res) => {
     db.carts.findOne({
+        include: [db.cartitems],
         where: {
           id: req.params.id
         }
