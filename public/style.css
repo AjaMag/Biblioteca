@@ -14,7 +14,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  color: rgb(206, 58, 21);
+  color: rgb(233, 88, 21);
 }
 
 
@@ -57,7 +57,7 @@ nav {
 }
 
 .nav-wrapper {
-  background-color: rgb(206, 58, 21);
+  background-color: rgb(233, 88, 21);
   color: lightgray;
   padding-bottom: 4rem;
   margin-bottom: 2rem;
@@ -68,7 +68,7 @@ nav {
 }
 
 .btn {
-  background-color: rgb(206, 58, 21);
+  background-color: rgb(233, 88, 21);
   color: lightgray;
 }
 
