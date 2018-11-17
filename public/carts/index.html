@@ -180,7 +180,8 @@
         .then(book => {
           // get current numbers
           let stockQty = book.stockQty - parseInt(cartItem.qty)
-          let totalUse = book.totalUse + parseFloat(cartItem.qty)
+          if(stockQty < 0 ) { stockQty = 0 }
+          let totalUse = book.totalUse + parseInt(cartItem.qty)
           // update inventory and sales
           fetch(`/librarybooks/${book.id}`, {
               method: 'PUT',
