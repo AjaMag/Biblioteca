@@ -22,23 +22,20 @@
   <!-- Dropdown Structure -->
   <div class="container">
 
-    
+
 
     <nav>
       <div class="nav-wrapper">
         <a href="#" class="brand-logo"><i class="material-icons bigIcon">account_balance</i></a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="large material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-        
-          <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
-          <li><a href="/libraryadmin"><i class="material-icons left">book</i>Admin</a></li>
+          <li><a href="/" class="nav-link"><i class="material-icons left">home</i>Home</a></li>
+          <li><a href="/libraryadmin" class="nav-link"><i class="material-icons left">book</i>Admin</a></li>
         </ul>
         <br>
-      
+
       </div>
     </nav>
-
-
 
 
     <div class="searchBar">
@@ -56,16 +53,16 @@
 
 
     <!-- <div class="container"> -->
-      <div class="row">
-        <div class="col s12">
-          <a class="waves-effect waves-light btn"><i class="material-icons left">search</i>Search</a>
-          <a class="waves-effect waves-light btn"><i class="material-icons left">layers_clear</i>Clear Search</a>
-          <a class="waves-effect waves-light btn"><i class="material-icons left">list</i>Total Items </a>
-          <a class="waves-effect waves-light btn"><i class="material-icons left">shopping_cart</i>View Cart</a>
-        </div>
+    <div class="row">
+      <div class="col s12">
+        <a class="waves-effect waves-light btn"><i class="material-icons left">search</i>Search</a>
+        <a class="waves-effect waves-light btn"><i class="material-icons left">layers_clear</i>Clear Search</a>
+        <a class="waves-effect waves-light btn"><i class="material-icons left">list</i>Total Items </a>
+        <a class="waves-effect waves-light btn"><i class="material-icons left">shopping_cart</i>View Cart</a>
       </div>
+    </div>
 
-     
+
 
 
     <!-- </div> -->
@@ -85,17 +82,17 @@
     <script>
       // keep a collection of incoming departments
       let sectionArr = []
-  
+
 
       document.addEventListener('click', e => {
-      if (e.target && e.target.id === 'addCart') {
-        //  redirect to the link (how to pass a parameter on new location? )
-        // window.location = `./booksadmin-edit?id=${e.target.value}`
+        if (e.target && e.target.id === 'addCart') {
+          //  redirect to the link (how to pass a parameter on new location? )
+          // window.location = `./booksadmin-edit?id=${e.target.value}`
 
-        // TODO: somethng goes here
-      }
+          // TODO: somethng goes here
+        }
 
-    })
+      })
 
       const getLibarySections = () => {
         fetch('/librarysections')
@@ -147,16 +144,13 @@
                    </div>
                  </div>
                  <div class="col s3">
-
-                 
                   <form>
                     <div class="form-group">
                       <label for="item${book.id}" class='d-inline'>Qty:</label>
                       <input type="number" class="form-control d-inline" name="item${book.id}" id="item${book.id}" min="1" value="1">
                     </div>
-                  </form>
-                    <button id="addCart" class="btn btn-primary" value=${book.id}>Add to Cart</button>
-                 
+                    <button id="cartBnt" class="btn btn-primary" value=${book.id} data-value='${JSON.stringify(book)}'>Add to Cart</button>
+                  </form>       
                  </div>
             </div>
             `
@@ -189,7 +183,13 @@
                             </div>
                           </div>
                           <div class="col s3">
-                             <button id="addCart" class="btn btn-primary" value=${book.id}>Add to Cart</button>
+                            <form>
+                             <div class="form-group">
+                               <label for="item${book.id}" class='d-inline'>Qty:</label>
+                               <input type="number" class="form-control d-inline" name="item${book.id}" id="item${book.id}" min="1" value="1">
+                             </div>
+                             <button id="cartBnt" class="btn btn-primary" value=${book.id} data-value='${JSON.stringify(book)}'>Add to Cart</button>
+                            </form>       
                           </div>
                      </div>
                      `
@@ -210,6 +210,77 @@
           let sectionId = getSectionId(document.querySelector('#sectionList').value, sectionArr)
           getBooksBySection(sectionId)
         }
+      }
+
+      // dynamic buttons elements handlers 
+      document.addEventListener('click', e => {
+        // override from-submit default behavior
+        event.preventDefault()
+        // Process selection 
+        if (e.target && e.target.id === 'cartBnt') {
+          // get book data:
+          // 1. get associated book with btn selection
+          let book = JSON.parse(e.target.getAttribute("data-value"))
+          // 2. retreive quantity
+          let qty = document.querySelector(`#item${e.target.value}`).value
+          // 3. add to cart (if cart does not exist, create cart and add itme)
+          if (currentCart === null) {
+            // create cart a+ selected item
+            createCart(book, qty)
+          } else {
+            // create selected item only 
+            createCartItem(currentCart, book, qty)
+          }
+        } else if (e.target.getAttribute("class") === 'nav-link') {
+          // it is a nav link, redirect to the link
+          window.location = e.target.getAttribute("href")
+        }
+
+      })
+
+      // Create a cart with first item
+      const createCart = (book, qty) => {
+        // create cart
+        fetch('/librarycarts', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json ; charset=utf-8'
+            },
+            body: JSON.stringify({
+              orderDate: new Date()
+            })
+          })
+          .then(r => r.json())
+          .then(r => {
+            // Save create Cart in a variable (r is created cart)
+            currentCart = r
+            // save current cart in the session
+            storePendingCart(currentCart)
+            // create cart item  
+            createCartItem(currentCart, book, qty)
+          })
+          .catch(e => console.error(e))
+      }
+
+      // Cart items
+      const createCartItem = (cart, book, qty) => {
+
+        // add item to cart
+        fetch('/cartitems', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json ; charset=utf-8'
+            },
+            body: JSON.stringify({
+              cartId: cart.id,
+              bookId: book.id,
+              qty: qty
+            })
+          })
+          .then(r => {
+            // nothing
+          })
+          .catch(e => console.error(e))
       }
 
       getLibarySections()

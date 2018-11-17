@@ -26,7 +26,7 @@ module.exports = (app) => {
   // Create
   app.post('/librarycarts', (req, res) => {
     db.carts.create(req.body)
-      .then(() => res.sendStatus(200))
+      .then(r => res.json(r))
       .catch(e => console.error(e))
   })
 
