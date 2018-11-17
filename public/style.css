@@ -14,9 +14,12 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  color: rgb(206, 58, 21);
+  color: rgb(233, 88, 21);
 }
 
+.text-shadow {
+  text-shadow: 2px 2px 4px #000000;
+}
 
 .imgRnd10 {
   /* Rounded image corners */
@@ -57,10 +60,11 @@ nav {
 }
 
 .nav-wrapper {
-  background-color: rgb(206, 58, 21);
+  background-color: rgb(233, 88, 21);
   color: lightgray;
   padding-bottom: 4rem;
   margin-bottom: 2rem;
+  height: 30%;
 }
 
 .logoholder {
@@ -68,7 +72,7 @@ nav {
 }
 
 .btn {
-  background-color: rgb(206, 58, 21);
+  background-color: rgb(233, 88, 21);
   color: lightgray;
 }
 
@@ -86,7 +90,7 @@ nav {
 .header {
   margin: 3rem 2rem 0 0;
   padding: 1rem;
-  color: lightgray;
+  color: white;
 }
 
 #nav-mobile {
@@ -108,13 +112,3 @@ nav {
     /* Set min height to fill larger screens */
   min-height: 800px;
 }
-<<<<<<< HEAD
-
-#sectionList{
-  margin-left: 20px;
-
-
-}
-
-=======
->>>>>>> c90ada63d1d86abb81164de4f541494f61c052f8

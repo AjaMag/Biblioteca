@@ -8,24 +8,30 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <link rel="stylesheet" href="../style.css">
   <title>Chart</title>
 </head>
 
 <body>
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">
-  
-        <img src="../public/images/librarylogo2.jpg" width="40%">
-  
-      </a>
-      <ul id="nav-mobile" class="right ">
-        <li><a href="/">Home</a></li>
-        <li><a href="/libraryadmin">Admin</a></li>
-  
+      <a href="#" class="brand-logo"><img src="../images/librarylogo2.jpg" class="mainLogo imgRnd10 imageShadow"></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="large material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
+        <li><a href="/libraryadmin"><i class="material-icons left">library_books</i>Library Admin</a></li>
       </ul>
+      <br>
+      <h3 class="d-inline align-baseline header">
+        Inventory Stats 
+      </h3>
     </div>
   </nav>
+      
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="/" class="text-shadow"><i class="material-icons left">home</i>Home</a></li>
+    <li><a href="/libraryadmin" class="text-shadow"><i class="material-icons left">library_books</i>Library Admin</a></li>
+  </ul>
 
   <div class="row">
     <form class="col s12">
@@ -73,10 +79,20 @@
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script>
     // var stringSimilarity = require('string-similarity');
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="../app.js"></script>
+
+  <!-- JS for side NavBar -->
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var options = document.querySelector('li');
+    var instances = M.Sidenav.init(elems, options);
+  });
+  </script>
+  
+  <script>
     var booksJSON = [];
-
-
-
 
     google.charts.load('current', { packages: ['corechart', 'bar'] });
     google.charts.setOnLoadCallback(drawMultSeries);
@@ -106,7 +122,7 @@
           }
         },
         vAxis: {
-          title: 'Qantity in stock'
+          title: 'Quantity in stock'
         }
       };
       

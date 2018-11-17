@@ -21,25 +21,25 @@
   <nav>
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo"><img src="../images/librarylogo2.jpg" class="mainLogo imgRnd10 imageShadow"></a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="large material-icons">menu</i></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger text-shadow"><i class="large material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
-        <li><a href="/booksadmin"><i class="material-icons left">book</i>Book Admin</a></li>
+        <li><a href="/" class="text-shadow"><i class="material-icons left">home</i>Home</a></li>
+        <li><a href="/booksadmin" class="text-shadow"><i class="material-icons left">book</i>Book Admin</a></li>
       </ul>
       <br>
-      <h3 class="d-inline align-baseline header">
+      <h3 class="d-inline align-baseline header text-shadow">
         Edit a book 
       </h3>
     </div>
   </nav>
     
   <ul class="sidenav" id="mobile-demo">
-    <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
-    <li><a href="/booksadmin"><i class="material-icons left">book</i>Book Admin</a></li>
+    <li><a href="/" class="text-shadow"><i class="material-icons left">home</i>Home</a></li>
+    <li><a href="/booksadmin" class="text-shadow"><i class="material-icons left">book</i>Book Admin</a></li>
   </ul>
 
   <div class="container">
-    <h2>New book</h2>
+    <h2 class="text-shadow">Update Book Info</h2>
     <form>
       <div class="form-group">
         <label for="deptList">Section <span id="sectionListErr"></span></label>
@@ -87,7 +87,17 @@
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <script src="../app.js"></script>
+
+  <!-- JS for side NavBar -->
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var options = document.querySelector('li');
+    var instances = M.Sidenav.init(elems, options);
+  });
+  </script>
 
   <script>
     // keep a library section collection
