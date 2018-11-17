@@ -23,22 +23,28 @@
             <a href="#!" class="brand-logo"><img src="../images/librarylogo2.jpg" class="mainLogo imgRnd10 imageShadow"></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="large material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="/" class="nav-link"><i class="material-icons left">home</i>Home</a></li>
-                <li><a href="/libraryadmin" class="nav-link"><i class="material-icons left">library_books</i>Library Admin</a></li>
+                <li><a href="/" class="nav-link text-shadow"><i class="material-icons left">home</i>Home</a></li>
+                <li><a href="/libraryadmin" class="nav-link text-shadow"><i class="material-icons left">library_books</i>Library Admin</a></li>
             </ul>
             <br>
-            <h3 class="d-inline align-baseline header">
+            <h3 class="d-inline align-baseline header text-shadow">
             Biblioteca
             </h3>
         </div>
     </nav>
         
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="/" class="nav-link"><i class="material-icons left">home</i>Home</a></li>
-        <li><a href="/libraryadmin" class="nav-link"><i class="material-icons left">library_books</i>Library Admin</a></li>
+        <li><a href="/" class="nav-link text-shadow"><i class="material-icons left">home</i>Home</a></li>
+        <li><a href="/libraryadmin" class="nav-link text-shadow"><i class="material-icons left">library_books</i>Library Admin</a></li>
     </ul>    
 
     <div class="searchBar">
+      <div class="row">
+        <div class="col 2">
+            <h5 class="d-inline align-baseline header text-shadow">Begin Exploring!</h5>
+        </div>
+    </div>  
+
       <div class="row">
         <div class="input-field col s16 ">
           <select class="browser-default" id="sectionList" onclick="selectChange()">
@@ -54,10 +60,10 @@
     <!-- <div class="container"> -->
     <div class="row">
       <div class="col s12">
-        <a class="waves-effect waves-light btn" onclick="booksSearch()"><i class="material-icons left">search</i>Search</a>
-        <a class="waves-effect waves-light btn" onclick="clearSearch()"><i class="material-icons left">layers_clear</i>Clear
+        <a class="waves-effect waves-light btn text-shadow" onclick="booksSearch()"><i class="material-icons left">search</i>Search</a>
+        <a class="waves-effect waves-light btn text-shadow" onclick="clearSearch()"><i class="material-icons left">layers_clear</i>Clear
           Search</a>
-        <a href="/cartview" class="nav-link waves-effect waves-light btn"><i class="material-icons left">shopping_cart</i>View
+        <a href="/cartview" class="nav-link waves-effect waves-light btn text-shadow"><i class="material-icons left">shopping_cart</i>View
           Cart</a>
         <div>
           <h4 id="cartItems"></h4>

@@ -17,6 +17,9 @@ body {
   color: rgb(233, 88, 21);
 }
 
+.text-shadow {
+  text-shadow: 2px 2px 4px #000000;
+}
 
 .imgRnd10 {
   /* Rounded image corners */
@@ -61,6 +64,7 @@ nav {
   color: lightgray;
   padding-bottom: 4rem;
   margin-bottom: 2rem;
+  height: 30%;
 }
 
 .logoholder {
@@ -86,7 +90,7 @@ nav {
 .header {
   margin: 3rem 2rem 0 0;
   padding: 1rem;
-  color: lightgray;
+  color: white;
 }
 
 #nav-mobile {
