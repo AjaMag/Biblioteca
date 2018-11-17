@@ -8,10 +8,7 @@ module.exports = (app) => {
   app.get("/cartitems", (req, res) => {
 
     db.cartitems.findAll({
-        include: [{
-          db: carts,
-          db: books
-        }]
+        include: [db.books]
       })
       .then(r => res.json(r))
       .catch(e => console.error(e))
@@ -20,10 +17,7 @@ module.exports = (app) => {
   // Find-one
   app.get('/cartitems/:id', (req, res) => {
     db.cartitems.findOne({
-        include: [{
-          db: carts,
-          db: books
-        }],
+        include: [db.books],
         where: {
           id: req.params.id
         }
@@ -70,5 +64,16 @@ module.exports = (app) => {
       .then(() => res.sendStatus(200))
       .catch(e => console.error(e))
   })
+
+  app.delete('/cartitems-all/:id', (req, res) => {
+    db.cartitems.destroy({
+        where: {
+          cartId: req.params.id
+        }
+      })
+      .then(() => res.sendStatus(200))
+      .catch(e => console.error(e))
+  })
+
 
 } // module.exports
