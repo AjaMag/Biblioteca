@@ -174,7 +174,7 @@
 
     const removeCart = (currentCartId) => {
       // then, remove the cart
-      fetch(`/carts/${currentCartId}`, {
+      fetch(`/librarycarts/${currentCartId}`, {
           method: 'DELETE'
         })
         .then(r => {
