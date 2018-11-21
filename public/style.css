@@ -30,9 +30,9 @@ body {
 
 .imageShadow {
   /* Add drop shadow */
-  -webkit-box-shadow: 2px 2px 3px 2px gray;
-  -moz-box-shadow: 2px 2px 3px 2px gray;
-  box-shadow: 2px 2px 3px 2px gray;
+  -webkit-box-shadow: 2px 2px 3px 2px white;
+  -moz-box-shadow: 2px 2px 3px 2px white;
+  box-shadow: 2px 2px 3px 2px white;
 }
 
 .divider {
@@ -73,7 +73,7 @@ nav {
 
 .btn {
   background-color: rgb(233, 88, 21);
-  color: lightgray;
+  color: white;
 }
 
 .mainLogo {
