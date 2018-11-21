@@ -58,6 +58,10 @@ body {
 
 }
 
+.white-background {
+  background-color: white;
+}
+
 nav {
   height: 135px;
   line-height: 30px;
@@ -86,6 +90,10 @@ nav {
 
 .whiteText {
 color: white;
+}
+
+.orangeBackground {
+  background-color: rgb(233, 88, 21);
 }
 
 .btn {
