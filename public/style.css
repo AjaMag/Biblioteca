@@ -108,7 +108,7 @@ nav {
   background-color:  lightgray;
   padding: 1rem 0rem 1rem 1rem;
   margin: 1rem 0rem 1rem 1rem;
-  border-radius: 18%;
+  border-radius: 12%;
     /* Set min height to fill larger screens */
   min-height: 800px;
 }
