@@ -71,6 +71,15 @@ nav {
   margin: 5px 0px 5px 10px; 
 }
 
+.formLabel {
+  font-weight: 800;
+  font-size: 1.5em;
+}
+
+.inputErrors {
+  color:red;
+}
+
 .btn {
   background-color: rgb(233, 88, 21);
   color: white;
