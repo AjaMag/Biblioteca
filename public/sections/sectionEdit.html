@@ -22,13 +22,13 @@
   <nav>
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo"><img src="../images/librarylogo2.jpg" class="mainLogo imgRnd10 imageShadow"></a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="large material-icons">menu</i></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger text-shadow"><i class="large material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
-        <li><a href="/sectionadmin"><i class="material-icons left">view_list</i>Sections Admin</a></li>
+        <li><a href="/" class="text-shadow"><i class="material-icons left">home</i>Home</a></li>
+        <li><a href="/sectionadmin" class="text-shadow"><i class="material-icons left">view_list</i>Sections Admin</a></li>
       </ul>
       <br>
-      <h3 class="d-inline align-baseline header">
+      <h3 class="d-inline align-baseline header text-shadow">
         Edit a Library Section
       </h3>
     </div>
@@ -41,14 +41,14 @@
 
   <div class="container">
 
-    <h5>Edit Library section</h5>
+    <h3 class="text-shadow">Edit Section</h3>
     <form>
       <div class="form-group">
-        <label for="sectDescription">Section <span class="inputErrors" id="secDescrErr"></span></label>
+        <label class="formLabel" for="sectDescription">Section: <span class="inputErrors" id="secDescrErr"></span></label>
         <input type="text" class="form-control" name="sectDescription" id="sectDescription" placeholder="Section description...">
       </div>
       <div class="form-group">
-        <label for="sectLoc">Location <span id="sectLocErr"></span></label>
+        <label class="formLabel" for="sectLoc">Location: <span class="inputErrors" id="sectLocErr"></span></label>
         <input type="text" class="form-control" name="sectLoc" id="sectLoc" placeholder="section location ...">
       </div>
       <button type="submit" class="btn btn-primary" onclick="editLibSection()">Add</button>

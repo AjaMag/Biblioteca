@@ -2,8 +2,7 @@
 <html lang="en">
 
 <head>
-  <!-- we might need to use a class="no-js" in the <html> tag to prevent a 
-"flash of unstyled content" for many Foundation components. -->
+ 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -64,13 +63,13 @@
   <div class="row">
     <div class="col s12">
       <!-- NEW -->
-      <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons left">search</i>Search</a>
+      <a class="waves-effect waves-light btn modal-trigger text-shadow" href="#modal1"><i class="material-icons left">search</i>Search</a>
       <a class="waves-effect waves-light btn text-shadow" onclick="clearSearch()"><i class="material-icons left">layers_clear</i>Clear
         Search</a>
       <a href="/cartview" class="nav-link waves-effect waves-light btn text-shadow"><i class="material-icons left">shopping_cart</i>View
         Cart</a>
       <div>
-        <h4 id="cartItems"></h4>
+        <h4 class="text-shadow whiteText" id="cartItems"></h4>
       </div>
 
     </div>
@@ -210,7 +209,7 @@
                  <div class="col s3">
                   <form>
                     <div class="form-group">
-                      <label for="item${book.id}" class='d-inline'>Qty:</label>
+                      <label class="formLabel" for="item${book.id}" class='d-inline'>Qty:</label>
                       <input type="number" class="form-control d-inline" name="item${book.id}" id="item${book.id}" min="1" value="1">
                     </div>
                     <button id="cartBnt" class="btn btn-primary" value=${book.id} data-value='${JSON.stringify(book)}'>Add to Cart</button>
