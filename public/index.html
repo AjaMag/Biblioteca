@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <!-- Applicaiton style -->
   <link rel="stylesheet" href="../style.css">
+  <!-- Animation for search transitions -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 </head>
 
 <body>
@@ -47,7 +49,7 @@
 
     <div class="row">
       <div class="input-field col s16 ">
-        <select class="browser-default" id="sectionList" onclick="selectChange()">
+        <select class="browser-default" id="sectionList" onchange="selectChange()">
         </select>
       </div>
       <div class='col s6'>
@@ -75,7 +77,7 @@
 
   <!-- </div> -->
 
-  <div class="container">
+  <div class="container animated" id="listContainer">
     <ul id="bookList">
       <!-- Library sections will go here -->
     </ul>
@@ -90,24 +92,34 @@
           <h2>New book</h2> -->
       <form>
         <div class="form-group">
-          <label class="formLabel" for="bookTitle">Title:</label>
-          <input type="text" class="form-control" name="bookTitle" id="bookTitle" placeholder="Title...">
+          <label for="bookTitle">Title</label>
+          <input type="text" class="form-control awesomeplete" list="titleList" name="bookTitle" id="bookTitle" placeholder="Title...">
+          <datalist id="titleList">
+          </datalist>
         </div>
         <div class="form-group">
-          <label class="formLabel" for="bookAuthor">Author:</label>
-          <input type="text" class="form-control" name="bookAuthor" id="bookAuthor" placeholder="Author ...">
+          <label for="bookAuthor">Author</label>
+          <input type="text" class="form-control awesomeplete" list="authorList" name="bookAuthor" id="bookAuthor" placeholder="Author ...">
+          <datalist id="authorList">
+          </datalist>
         </div>
         <div class="form-group">
-          <label class="formLabel" for="bookYear">Year:</label>
-          <input type="text" class="form-control" name="bookYear" id="bookYear" placeholder="Year ...">
+          <label for="bookYear">Year</label>
+          <input type="text" class="form-control awesomeplete" list="yearList" name="bookYear" id="bookYear" placeholder="Year ...">
+          <datalist id="yearList">
+          </datalist>
         </div>
         <div class="form-group">
-          <label class="formLabel" for="bookGenre">Genre:</label>
-          <input type="text" class="form-control" name="bookGenre" id="bookGenre" placeholder="Genre ...">
+          <label for="bookGenre">Genre</label>
+          <input type="text" class="form-control awesomeplete" list="genreList" name="bookGenre" id="bookGenre" placeholder="Genre ...">
+          <datalist id="genreList">
+          </datalist>
         </div>
         <div class="form-group">
-          <label class="formLabel" for="bookISBN">ISBN:</label>
-          <input type="text" class="form-control" name="bookISBN" id="bookISBN" placeholder="ISBN ...">
+          <label for="bookISBN">ISBN</label>
+          <input type="text" class="form-control awesomeplete" list="ISBNList" name="bookISBN" id="bookISBN" placeholder="ISBN ...">
+          <datalist id="ISBNList">
+          </datalist>
         </div>
       </form>
     </div>
@@ -119,6 +131,7 @@
 
 
   <!-- Compressed JavaScript -->
+  <script src="awesomplete.js" async></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script>
@@ -206,6 +219,12 @@
                `
             document.querySelector('#bookList').appendChild(listItem)
           });
+          
+          document.getElementById("listContainer").setAttribute("class", "container fadeIn animated");
+
+          setTimeout(function () {
+            document.getElementById("listContainer").setAttribute("class", "container");
+          }, 1000);  
         })
         .catch(e => console.error(e))
     }
@@ -245,6 +264,11 @@
                 `
             document.querySelector('#bookList').appendChild(listItem)
           });
+          document.getElementById("listContainer").setAttribute("class", "container fadeIn animated");
+
+          setTimeout(function () {
+            document.getElementById("listContainer").setAttribute("class", "container");
+          }, 1000);  
         })
         .catch(e => console.error(e))
 
@@ -369,6 +393,11 @@
                `
             document.querySelector('#bookList').appendChild(listItem)
           });
+          document.getElementById("listContainer").setAttribute("class", "container fadeIn animated");
+
+          setTimeout(function () {
+            document.getElementById("listContainer").setAttribute("class", "container");
+          }, 1000);  
           // clear entries
           document.querySelector('#bookTitle').value = ''
           document.querySelector('#bookAuthor').value = ''
@@ -423,7 +452,37 @@
         window.location = e.target.getAttribute("href")
       }
     })
+      //add all data in database to autocomplete functionality
+     function seedAutoComplete() {
+        fetch("/librarybooks")
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (books) {
+            for (i = 0; i < books.length; i++) {
+              var addAuthor = document.createElement("option");
+              addAuthor.innerHTML = books[i].author;
+              document.querySelector("#authorList").appendChild(addAuthor);
 
+              var addGenre = document.createElement("option");
+              addGenre.innerHTML = books[i].genre;
+              document.querySelector("#genreList").appendChild(addGenre);
+
+              var addYear = document.createElement("option");
+              addYear.innerHTML = books[i].year;
+              document.querySelector("#yearList").appendChild(addYear);
+
+              var addTitle = document.createElement("option");
+              addTitle.innerHTML = books[i].title;
+              document.querySelector("#titleList").appendChild(addTitle);
+
+              var addISBN = document.createElement("option");
+              addISBN.innerHTML = books[i].ISBN;
+              document.querySelector("#ISBNList").appendChild(addISBN);
+            }
+          });
+      }
+    seedAutoComplete()
     getLibarySections()
     getBooks()
     countCartItems()

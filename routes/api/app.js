@@ -1,7 +1,5 @@
 // Main applicaiton java script
 
-
-
 // CART functionality --------------------------------------------
 let currentCart = getPendingCart()
 
