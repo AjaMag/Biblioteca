@@ -112,3 +112,11 @@ nav {
     /* Set min height to fill larger screens */
   min-height: 800px;
 }
+
+#chart_div {
+  width: 100%;
+}
+
+.chartInput {
+  color: white;
+}
