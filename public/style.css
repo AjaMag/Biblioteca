@@ -17,6 +17,10 @@ body {
   color: rgb(233, 88, 21);
 }
 
+.padding {
+  padding-top: 4rem;
+}
+
 .text-shadow {
   text-shadow: 2px 2px 4px #000000;
 }
