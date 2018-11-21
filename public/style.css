@@ -80,6 +80,10 @@ nav {
   color:red;
 }
 
+.whiteText {
+color: white;
+}
+
 .btn {
   background-color: rgb(233, 88, 21);
   color: white;
