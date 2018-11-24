@@ -5,19 +5,39 @@ const path = require('path')
 module.exports = (app) => {
 
   app.get('/sectionadmin', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../public/sections/index.html'))
+    //authorization
+    if (req.user) {
+      res.sendFile(path.join(__dirname, '../../public/sections/index.html'))
+    } else {
+      res.redirect('/signIn')
+    }
   })
-  
+
   app.get('/sectionadmin-add', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../public/sections/sectionAdd.html'))
+    //authorization
+    if (req.user) {
+      res.sendFile(path.join(__dirname, '../../public/sections/sectionAdd.html'))
+    } else {
+      res.redirect('/signIn')
+    }
   })
 
   app.get('/sectionadmin-edit', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../public/sections/sectionEdit.html'))
+    //authorization
+    if (req.user) {
+      res.sendFile(path.join(__dirname, '../../public/sections/sectionEdit.html'))
+    } else {
+      res.redirect('/signIn')
+    }  
   })
 
   app.get('/sectionadmin-delete', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../public/sections/sectionDelete.html'))
+    //authorization
+    if (req.user) {
+      res.sendFile(path.join(__dirname, '../../public/sections/sectionDelete.html'))
+    } else {
+      res.redirect('/signIn')
+    }  
   })
 
-} // module.exports  
+} // module.exports

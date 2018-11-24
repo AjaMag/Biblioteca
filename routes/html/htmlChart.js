@@ -5,7 +5,12 @@ const path = require('path')
 module.exports = (app) => {
 
   app.get('/chartview', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../public/charts/chart.html'))
+    //authorization
+    if (req.user) {
+      res.sendFile(path.join(__dirname, '../../public/charts/chart.html'))
+    } else {
+      res.redirect('/signIn')
+    }
   })
 
-} // module.exports  
+} // module.exports

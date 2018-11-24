@@ -12,7 +12,14 @@ use biblioteca_db;
 drop table books;
 drop table sections;
 
--- inserting sampple data
+-- users
+use biblioteca_db;
+drop table users;
+
+-- add data
+use biblioteca_db;
+INSERT INTO users (username,password,email,createdAt,updatedAt)
+VALUE("admin","admin","admin@library.com",now(),now());
 
 -- add data
 USE biblioteca_db;

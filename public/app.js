@@ -36,3 +36,31 @@ function getSectionName(sectId, targetArr) {
   });
   return sectionName
 }
+
+function getSessionUser() {
+  console.log("frontend-sessionuser")
+  fetch('/sessionuser')
+    .then(r => r.json())
+    .then(r => {
+      console.log(r)
+      console.log(r.username)
+      if (r.username !== undefined) {
+        document.querySelector('#username').innerHTML = `${r.username}`
+      }
+    })
+    .catch(e => console.error(e))
+}
+
+function signOut(){
+  event.preventDefault()
+  console.log("frontend-signOut")
+  // logout
+  fetch('/signOut')
+    .then(r => {
+      console.log(r)
+      console.log(r.url)
+      // redirect
+      window.location = r.url
+    })
+    .catch(e => console.error(e))
+}

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
+
   <title>Admin Home</title>
   <link rel="icon" href="../images/libraryicon.png">
 
@@ -30,43 +30,59 @@
       </h3>
     </div>
   </nav>
-      
+
   <ul class="sidenav" id="mobile-demo">
     <li><a href="/"><i class="material-icons left ">home</i>Home</a></li>
   </ul>
 
-  <div class="container transparentContainer">
-
+  <div class="loginbar">
     <div class="row">
-      <div class="col">
-        <a  href="/sectionadmin" class="waves-effect waves-light btn btn-large text-shadow">
-          <i class="material-icons text-shadow">account_balance</i> 
-           Library Sections
-        </a>
+      <div class="col 10">
       </div>
-      <div class="col">
-        <a href="/booksadmin" class="waves-effect waves-light btn btn-large text-shadow"><i class="material-icons">library_books</i> Books Inventory</a>
+      <div class="col 2">
+        <a class="waves-effect waves-light btn modal-trigger text-shadow nav-link" href="/signIn">Login</a>
+        <a class="waves-effect waves-light btn modal-trigger text-shadow" onclick="signOut()">Logout</a>
+        <label id="username" class="logeduser"></label>
       </div>
-      <div class="col">
-          <a href="/chartview" class="waves-effect waves-light btn btn-large text-shadow"><i class="material-icons">bar_chart</i> Statistics</a>
-        </div>
     </div>
 
-  </div>
+    <div class="container transparentContainer">
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-  <script src="../app.js"></script>
+      <div class="row">
+        <div class="col">
+          <a href="/sectionadmin" class="waves-effect waves-light btn btn-large text-shadow">
+            <i class="material-icons text-shadow">account_balance</i>
+            Library Sections
+          </a>
+        </div>
+        <div class="col">
+          <a href="/booksadmin" class="waves-effect waves-light btn btn-large text-shadow"><i class="material-icons">library_books</i>
+            Books Inventory</a>
+        </div>
+        <div class="col">
+          <a href="/chartview" class="waves-effect waves-light btn btn-large text-shadow"><i class="material-icons">bar_chart</i>
+            Statistics</a>
+        </div>
+      </div>
 
-  <!-- JS for side NavBar -->
-  <script>
-   document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var options = document.querySelector('li');
-    var instances = M.Sidenav.init(elems, options);
-  });
-  </script>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+    <script src="../app.js"></script>
+
+    <!-- JS for side NavBar -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.sidenav');
+        var options = document.querySelector('li');
+        var instances = M.Sidenav.init(elems, options);
+      });
+
+      getSessionUser()
+    </script>
 
 </body>
 

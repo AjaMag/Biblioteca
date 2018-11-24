@@ -5,4 +5,5 @@ module.exports = (app) => {
   require('./html/htmlCarts')(app)
   require('./html/htmlSections')(app)
   require('./html/htmlChart')(app)
+  require('./html/login')(app)
 }

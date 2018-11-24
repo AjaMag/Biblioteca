@@ -1,10 +1,12 @@
 const express = require('express')
 const app = express()
 const bodyparser = require('body-parser')
-// const foundation = require('foundation-sites') 
 const path = require('path')
-const SQLZ = require("sequelize")
-const sequelize = new SQLZ('mysql://root:rootroot@localhost:3306/biblioteca_db');
+
+// Passport dependencies
+const passport = require('passport');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyparser.urlencoded({
@@ -12,6 +14,14 @@ app.use(bodyparser.urlencoded({
 }))
 app.use(bodyparser.json())
 
+// Initalize passport
+app.use(cookieParser());
+app.use(session({ secret: 'library' }));
+
+// define passport route
+require('./routes/config/passport.js')(app);
+
+// define other routes
 require('./routes')(app)
 
 // sync DB and listen
