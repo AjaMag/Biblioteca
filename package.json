@@ -1,6 +1,10 @@
 {
   "name": "biblioteca",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.11.1",
+    "npm": "6.1.0"
+  },
   "description": "An online library app using node, express, and sequelize",
   "main": "server.js",
   "scripts": {
