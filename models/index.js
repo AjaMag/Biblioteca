@@ -9,10 +9,33 @@ const fs = require('fs')
 const path = require('path')
 const Sequelize = require('sequelize')
 const basename = path.basename(__filename)
+
 const env = process.env.NODE_ENV || 'development'
 const config = require(path.join(__dirname, '..', 'config', 'config.json'))[env]
 let db = {}
-const sequelize = config.use_env_variable ? new Sequelize(process.env[config.use_env_variable], config) : new Sequelize(config.database, config.username, config.password, config)
+
+// Key information about environoment 
+console.log('process.env.NODE_ENV:', process.env.NODE_ENV)
+console.log('process.env.JAWSDB_URL:', process.env.JAWSDB_URL)
+console.log('env',env)
+console.log("config",config)
+console.log("process.env[config.use_env_variable]",process.env[config.use_env_variable])
+
+let sequelize = null
+
+// Determine connection string
+// This is a variation to connect uisng Heroku environment variable 
+// that conatins coonetion sting
+if (process.env.NODE_ENV === 'production') {
+  console.log("Connection with : ", process.env.JAWSDB_URL)
+  sequelize = new Sequelize(process.env.JAWSDB_URL)
+} else {
+  console.log("Connection with : ",config)
+  sequelize = new Sequelize(config.database, config.username, config.password, config)
+}
+
+// const sequelize = config.use_env_variable ? new Sequelize(process.env[config.use_env_variable], config) 
+//                   : new Sequelize(config.database, config.username, config.password, config)
 
 fs
   .readdirSync(__dirname)
